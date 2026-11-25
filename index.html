@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Annas Glubschis</title>
+  <meta name="description" content="Annas Glubschi-Sammlung">
+  <meta name="theme-color" content="#ff6fb5">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Glubschis">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="kopf">
+    <div class="titel">
+      <img src="icon.svg" alt="" class="logo">
+      <h1>Annas Glubschis</h1>
+      <button type="button" class="rund menue-knopf" id="menue-knopf" aria-label="Sichern und Laden">
+        <span aria-hidden="true">⚙️</span>
+        <span class="punkt" id="menue-punkt" hidden title="Zeit für eine Sicherung"></span>
+      </button>
+    </div>
+    <div class="zaehler" id="zaehler"></div>
+  </header>
+
+  <nav class="reiter" id="reiter" aria-label="Serien"></nav>
+
+  <main id="inhalt"></main>
+
+  <dialog id="detail" aria-labelledby="d-name">
+    <div class="d-karte">
+      <div class="d-leiste">
+        <button class="rund" id="d-zurueck" aria-label="Vorherige Figur">‹</button>
+        <button class="rund" id="d-weiter" aria-label="Nächste Figur">›</button>
+        <span class="frei"></span>
+        <button class="rund zu" id="d-zu" aria-label="Schließen">✕</button>
+      </div>
+      <div class="d-bild" id="d-bild"></div>
+      <h2 id="d-name"></h2>
+      <div class="d-abzeichen" id="d-abzeichen"></div>
+      <div class="d-bewertung">
+        <div class="d-herzen" id="d-herzen" role="radiogroup" aria-label="Bewertung mit Herzen"></div>
+        <div class="d-herz-text" id="d-herz-text"></div>
+      </div>
+      <div class="d-extra" id="d-extra"></div>
+      <dl class="d-infos" id="d-infos"></dl>
+      <div class="d-knoepfe" id="d-knoepfe">
+        <label class="knopf kamera">
+          <span aria-hidden="true">📷</span> <span>Foto machen</span>
+          <input type="file" accept="image/*" capture="environment" id="d-kamera" hidden>
+        </label>
+        <label class="knopf galerie">
+          <span aria-hidden="true">🖼️</span> <span>Foto aussuchen</span>
+          <input type="file" accept="image/*" id="d-datei" hidden>
+        </label>
+        <button class="knopf loeschen" id="d-loeschen" type="button">
+          <span aria-hidden="true">🗑️</span> <span>Foto löschen</span>
+        </button>
+      </div>
+      <div class="d-sicher" id="d-sicher" hidden>
+        <p>Foto wirklich löschen?</p>
+        <div class="d-knoepfe">
+          <button class="knopf loeschen" id="d-ja" type="button">Ja, löschen</button>
+          <button class="knopf" id="d-nein" type="button">Nein, behalten</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="menue" aria-labelledby="m-titel">
+    <div class="d-karte">
+      <div class="d-leiste">
+        <h2 id="m-titel" class="m-titel">💾 Sichern &amp; Laden</h2>
+        <span class="frei"></span>
+        <button class="rund zu" id="m-zu" aria-label="Schließen">✕</button>
+      </div>
+      <p class="m-info" id="m-info"></p>
+      <div id="m-aktionen">
+        <button type="button" class="knopf kamera m-gross" id="m-export">
+          <span aria-hidden="true">💾</span> Sammlung sichern
+        </button>
+        <p class="m-hilfe">Speichert alle Fotos, Herzen, Wünsche und Doppelten in <b>eine Datei</b>.
+          Heb sie gut auf, z.&nbsp;B. in iCloud Drive oder auf dem Computer.</p>
+        <label class="knopf m-gross">
+          <span aria-hidden="true">📂</span> Sicherung laden
+          <input type="file" accept=".json,application/json" id="m-import" hidden>
+        </label>
+        <p class="m-hilfe">Holt eine gesicherte Sammlung zurück, z.&nbsp;B. auf einem neuen Tablet.
+          Was schon auf diesem Gerät ist, bleibt erhalten.</p>
+      </div>
+      <div class="m-frage" id="m-frage" hidden>
+        <p id="m-frage-text"></p>
+        <div class="d-knoepfe">
+          <button class="knopf kamera" id="m-ja" type="button">Ja, laden</button>
+          <button class="knopf" id="m-nein" type="button">Abbrechen</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

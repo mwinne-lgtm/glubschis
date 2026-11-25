@@ -1,0 +1,5 @@
+heic-to 1.6.7 (https://github.com/hoppergee/heic-to), enthält libheif
+Lizenz: LGPL-3.0. Unverändert als eigene Datei eingebunden.
+Wandelt HEIC-Fotos (iPhone-Format) im Browser in JPEG um.
+Wird von der App nur geladen, wenn ein Browser HEIC nicht selbst öffnen kann
+(z. B. Chrome; Safari auf iPad/iPhone/Mac kann HEIC direkt).
